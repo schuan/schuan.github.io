@@ -24,20 +24,24 @@ html, body {
 <body>
 
 <script type="text/javascript">
-var xmlhttp = new XMLHttpRequest();
-var url = "http://ip-api.com/json";
+var requestUrl = "http://ip-api.com/json";
 
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var response = JSON.parse(this.responseText);
-        window.alert(response.countryCode);
+$.ajax({
+  url: requestUrl,
+  type: 'GET',
+  success: function(json)
+  {
+    window.alert("My country is: " + json.countryCode);
+    if(json.countryCode == "US")
+    {
+    	window.location.href="homepage_index.html";
     }
-};
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-
-
-
+  },
+  error: function(err)
+  {
+    //console.log("Request failed, error= " + err);
+  }
+});
 
 
 </script>
