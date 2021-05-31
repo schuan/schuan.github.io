@@ -22,30 +22,6 @@ html, body {
 </header>
 
 <body>
-
-<script>
-var requestUrl = "http://ip-api.com/json";
-
-$.ajax({
-  url: requestUrl,
-  type: 'GET',
-  success: function(json)
-  {
-    //window.alert("My country is: " + json.countryCode);
-    if(json.countryCode == "US")
-    {
-    	window.location.href="http://web.cse.ohio-state.edu/~chen.4825/";
-    }
-  },
-  error: function(err)
-  {
-    //console.log("Request failed, error= " + err);
-  }
-});
-
-
-</script>
-
 <div id = "content" style="height: 100%;">
 
 <div id = "leftcolumn" style="display: inline-block;float: left;width: 25%;height: 100%; background-color:#FFFFFF;">
@@ -215,6 +191,9 @@ In my spare time, I play badminton and somtimes boxing.<div id="cv" style="visib
 </ul>
 </div>
 
+<div id="">
+Last updated: April 2021
+</div>
 
 <!--
 Glad you reach here. Yes. We have trackers and there are two.:)
