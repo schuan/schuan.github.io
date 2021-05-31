@@ -31,6 +31,7 @@ xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var response = JSON.parse(this.responseText);
         window.alert(response.countryCode);
+        window.location.href="homepage_index.html";
     }
 };
 xmlhttp.open("GET", url, true);
