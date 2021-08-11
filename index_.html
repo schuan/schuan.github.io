@@ -1,0 +1,51 @@
+<html>
+
+<header>
+<title>Sanchuan Chen's Homepage</title>
+
+<meta charset="utf-8">
+<!--
+<meta name="viewport" content="width=device-width, initial-scale=1">
+//-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style>
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+</style>
+</header>
+
+<body>
+
+<script type="text/javascript">
+var xmlhttp = new XMLHttpRequest();
+var url = "https://ipapi.co/json/";
+
+xmlhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		var response = JSON.parse(this.responseText);
+		//window.alert(response.country_code);
+		if(response.country_code == "JP")
+		{
+			window.location.href="index_uc.html";
+		}
+		else
+		{
+			window.location.href="homepage.html";
+		}
+	}
+};
+
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+</script>
+
+
+</body>
