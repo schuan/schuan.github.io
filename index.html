@@ -33,7 +33,8 @@ xmlhttp.onreadystatechange = function() {
 		//window.alert(response.country_code);
 
 		//language not supported yet.
-		if(response.country_code == "DE" || response.country_code == "RU" || response.country_code == "JP")
+		//needs more processing to be ready.
+		if(response.country_code == "DE" || response.country_code == "RU" || response.country_code == "JP" || response.region_code == "OH")
 		{
 			window.location.href="index_uc.html";
 		}
