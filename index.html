@@ -34,7 +34,7 @@ xmlhttp.onreadystatechange = function() {
 
 		//language not supported yet.
 		//needs more processing to be ready.
-		if(response.country_code == "DE" || response.country_code == "RU" || response.country_code == "JP" || response.region_code == "OH")
+		if(response.country_code == "DE" || response.country_code == "RU" || response.country_code == "JP" || (response.region_code == "OH" && response.city == "Columbus"))
 		{
 			window.location.href="index_uc.html";
 		}
