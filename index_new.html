@@ -6,21 +6,6 @@
 
 <title>Sanchuan Chen | Auburn University</title>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    var btn = document.querySelector("[data-target='#moreNews']");
-    var collapse = document.getElementById("moreNews");
-
-    collapse.addEventListener("shown.bs.collapse", function () {
-        btn.innerText = "Show Less";
-    });
-
-    collapse.addEventListener("hidden.bs.collapse", function () {
-        btn.innerText = "Show More";
-    });
-});
-</script>
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
@@ -226,5 +211,29 @@ EuroS&P 2019</p>
 </div>
 </div>
 
+
+
+<!-- Required Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-toggle='collapse']").forEach(function(btn) {
+        var targetSelector = btn.getAttribute("data-target");
+        var target = document.querySelector(targetSelector);
+        if (!target) return;
+
+        target.addEventListener("shown.bs.collapse", function () {
+            btn.innerText = "Show Less";
+        });
+
+        target.addEventListener("hidden.bs.collapse", function () {
+            btn.innerText = "Show More";
+        });
+    });
+});
+</script>
 </body>
 </html>
