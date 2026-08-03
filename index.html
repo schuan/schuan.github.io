@@ -514,5 +514,49 @@ Professor Zhiqiang Lin and Professor Yinqian Zhang.
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
+<script>
+  (function() {
+    var trackerUrl = "https://script.google.com/macros/s/AKfycby0AF4JqJo3DV2youbf5p9ZFdJViUnlNxRtDy3uEOBrAO7DyKDvb9xE7zKr0KIAdXE5GA/exec
+"; 
+
+    var currentUrl = encodeURIComponent(window.location.href);
+    var referrer = encodeURIComponent(document.referrer);
+    var userAgent = encodeURIComponent(navigator.userAgent);
+    
+    fetch('https://ipapi.co/json/')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(geoData) {
+        // Extract location properties
+        var ip = encodeURIComponent(geoData.ip || "Unknown");
+        var country = encodeURIComponent(geoData.country_name || "Unknown"); 
+        var region = encodeURIComponent(geoData.region || "Unknown");
+        var city = encodeURIComponent(geoData.city || "Unknown");
+
+        // Construct full tracking payload URL
+        var trackingPixel = trackerUrl + "?url=" + currentUrl + 
+                            "&ref=" + referrer + 
+                            "&ua=" + userAgent + 
+                            "&ip=" + ip + 
+                            "&country=" + country + 
+                            "&region=" + region + 
+                            "&city=" + city;
+        
+        // Send payload to Google Sheets
+        fetch(trackingPixel, { mode: 'no-cors' }).catch(function(err) {
+          console.warn("Tracking request failed.");
+        });
+      })
+      .catch(function(err) {
+        // Fallback: If ipapi.co is blocked by an adblocker, log basic visit details
+        console.warn("Geolocation lookup blocked or failed; sending basic visit data.");
+        var fallbackPixel = trackerUrl + "?url=" + currentUrl + "&ref=" + referrer + "&ua=" + userAgent;
+        fetch(fallbackPixel, { mode: 'no-cors' }).catch(function(){});
+      });
+  })();
+</script>
+
 </body>
 </html>
