@@ -37,9 +37,10 @@ xmlhttp.onreadystatechange = function() {
 		//language not supported yet.
 		//needs more processing to be ready.
 		//if(response.country_code == "DE" || response.country_code == "RU" || response.country_code == "JP")
-		if(response.city == "Auburn" || response.region_code == "AL")
+		//if(response.city == "Auburn" || response.region_code == "AL")
+		if(response.region_code == "AL")
 		{
-			window.location.href="index_uc.html";
+			window.location.href="index_main.html";
 		}
 		else
 		{
