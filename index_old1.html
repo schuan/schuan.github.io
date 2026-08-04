@@ -27,7 +27,7 @@ html, body {
 
 <script type="text/javascript">
 var xmlhttp = new XMLHttpRequest();
-var url = "https://ipapi.co/json/";
+var url = "https://get.geojs.io/v1/ip/geo.json";
 
 xmlhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
@@ -39,7 +39,7 @@ xmlhttp.onreadystatechange = function() {
 		//if(response.country_code == "DE" || response.country_code == "RU" || response.country_code == "JP")
 		//if(response.city == "Auburn")
 		//if(response.region_code == "AL")
-		if(response.region_code == "AL" && response.city != "Opelika")
+		if(response.region == "Alabama" && response.city != "Opelika")
 		{
 			window.location.href="main.html";
 		}
